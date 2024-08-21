@@ -82,14 +82,27 @@ def main():
     marital_status = st.selectbox("Marital Status", ["Select an option", "Single", "Married", "Widowed", "Cohabiting"])
     has_disability = st.selectbox("Do you have any form of disability?", ["Select an option", "Yes", "No"])
 
+    # Default all variables to 'No'
+    out_of_school = "No"
+    ever_had_sex = "No"
+    is_head = "No"
+    undergone_gbv_last_12mnths = "No"
+    sexual_partners_last_12mnths = "No"
+    received_gifts_for_sex = "No"
+    ever_had_sti = "No"
+    no_condom_use = "No"
+    is_orphan = "No"
+    has_child = "No"
+    used_drugs_last_12mnths = "No"
+
     # Variables for ages 10-14
     if 10 <= age_at_screening <= 14:
         out_of_school = st.selectbox("Out of School", ["Select an option", "Yes", "No"])
         is_head = st.selectbox("Is the head of the household or in a child headed household", ["Select an option", "Yes", "No"])
         undergone_gbv_last_12mnths = st.selectbox("Undergoing violence or has undergone violence in the last 12 Months? (Physical, Emotional, Sexual, Social economic Violence)", ["Select an option", "Yes", "No"])
+        is_orphan = st.selectbox("Is an orphan (partial or total)", ["Select an option", "Yes", "No"])
         has_child = st.selectbox("Has a child of her own/is pregnant/has been pregnant?", ["Select an option", "Yes", "No"])
         used_drugs_last_12mnths = st.selectbox("Has used alcohol/drugs or abused or struggled with addiction in the last 12 months?", ["Select an option", "Yes", "No"])
-        is_orphan = st.selectbox("Is an orphan (partial or total)", ["Select an option", "Yes", "No"])
 
     # Variables for ages 15-19
     elif 15 <= age_at_screening <= 19:
@@ -117,7 +130,7 @@ def main():
 
     # Additional required fields based on age
     if 10 <= age_at_screening <= 14:
-        required_fields += [out_of_school, is_head, undergone_gbv_last_12mnths, has_child, used_drugs_last_12mnths, is_orphan]
+        required_fields += [out_of_school, is_head, undergone_gbv_last_12mnths, is_orphan, has_child, used_drugs_last_12mnths]
     elif 15 <= age_at_screening <= 19:
         required_fields += [out_of_school, is_head, undergone_gbv_last_12mnths, sexual_partners_last_12mnths, received_gifts_for_sex, ever_had_sti, no_condom_use, used_drugs_last_12mnths]
     elif 20 <= age_at_screening <= 24:
@@ -131,17 +144,11 @@ def main():
         if st.button("Check Eligibility"):
             input_data_as_numpy_array = process_input_data(
                 age_at_screening, marital_status, has_disability, 
-                out_of_school if 'out_of_school' in locals() else None, 
-                None, # Placeholder for ever_had_sex, not shown here
-                is_head if 'is_head' in locals() else None,
-                undergone_gbv_last_12mnths if 'undergone_gbv_last_12mnths' in locals() else None,
-                sexual_partners_last_12mnths if 'sexual_partners_last_12mnths' in locals() else None,
-                received_gifts_for_sex if 'received_gifts_for_sex' in locals() else None,
-                ever_had_sti if 'ever_had_sti' in locals() else None,
-                no_condom_use if 'no_condom_use' in locals() else None,
-                is_orphan if 'is_orphan' in locals() else None,
-                has_child if 'has_child' in locals() else None,
-                used_drugs_last_12mnths if 'used_drugs_last_12mnths' in locals() else None
+                out_of_school, ever_had_sex, 
+                is_head, undergone_gbv_last_12mnths,
+                sexual_partners_last_12mnths, received_gifts_for_sex,
+                ever_had_sti, no_condom_use,
+                is_orphan, has_child, used_drugs_last_12mnths
             )
             # Make prediction
             prediction = model.predict(input_data_as_numpy_array)
