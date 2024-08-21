@@ -106,9 +106,9 @@ def main():
 
         # Display result
         if prediction[0] == 1:
-            st.write('AGYW is Not Eligible')
+            st.write('AGYW is Not Eligible for Enrollment')
         else:
-            st.write('AGYW is Eligible')
+            st.write('AGYW is Eligible for Enrollment')
         
        
 # Run the app
