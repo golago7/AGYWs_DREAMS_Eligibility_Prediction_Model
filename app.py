@@ -144,9 +144,9 @@ def main():
             prediction = model.predict(input_data)
             
             if prediction == 1:
-                st.success("Eligible for the DREAMS Program.")
+                st.success("Not Eligible for Enrollment in the DREAMS Program.")
             else:
-                st.warning("Not eligible for the DREAMS Program.")
+                st.warning("Eligible for Enrollment in the DREAMS Program.")
 
 if __name__ == "__main__":
     main()
