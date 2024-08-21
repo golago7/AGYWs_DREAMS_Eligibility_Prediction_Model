@@ -56,7 +56,7 @@ def process_input_data(age, out_of_school, ever_had_sex,
 
 def main():
     # Streamlit UI
-    st.title("Eligibility for Enrollment Prediction")
+    st.title("Eligibility for Enrollment Prediction Model")
 
     # Age input
     age_at_screening = st.text_input("Enter AGYW Age at Screening")
