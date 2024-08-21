@@ -86,7 +86,7 @@ def main():
 
     # Variables for ages 10-14
     if 10 <= age_at_screening <= 14:
-        out_of_school = st.selectbox("Out of School", [" ", "Yes", "No"])
+        out_of_school = st.selectbox("Out of School", ["Select an option", "Yes", "No"])
         ever_had_sex = st.selectbox("Ever had sex", ["Select an option", "Yes", "No"])
         is_head = st.selectbox("Is the head of the household or in a child headed household", ["Select an option", "Yes", "No"])
         undergone_gbv_last_12mnths = st.selectbox("Undergoing violence or has undergone violence in the last 12 Months? (Physical, Emotional, Sexual, Social economic Violence)", ["Select an option", "Yes", "No"])
