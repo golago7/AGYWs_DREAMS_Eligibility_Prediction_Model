@@ -98,6 +98,7 @@ def main():
     # Variables for ages 10-14
     if 10 <= age_at_screening <= 14:
         out_of_school = st.selectbox("Out of School", ["Select an option", "Yes", "No"])
+        ever_had_sex = st.selectbox("Ever had sex", ["Select an option", "Yes", "No"])
         is_head = st.selectbox("Is the head of the household or in a child headed household", ["Select an option", "Yes", "No"])
         undergone_gbv_last_12mnths = st.selectbox("Undergoing violence or has undergone violence in the last 12 Months? (Physical, Emotional, Sexual, Social economic Violence)", ["Select an option", "Yes", "No"])
         is_orphan = st.selectbox("Is an orphan (partial or total)", ["Select an option", "Yes", "No"])
@@ -130,7 +131,7 @@ def main():
 
     # Additional required fields based on age
     if 10 <= age_at_screening <= 14:
-        required_fields += [out_of_school, is_head, undergone_gbv_last_12mnths, is_orphan, has_child, used_drugs_last_12mnths]
+        required_fields += [out_of_school,ever_had_sex, is_head, undergone_gbv_last_12mnths, is_orphan, has_child, used_drugs_last_12mnths]
     elif 15 <= age_at_screening <= 19:
         required_fields += [out_of_school, is_head, undergone_gbv_last_12mnths, sexual_partners_last_12mnths, received_gifts_for_sex, ever_had_sti, no_condom_use, used_drugs_last_12mnths]
     elif 20 <= age_at_screening <= 24:
