@@ -78,20 +78,71 @@ def main():
         st.error("Please enter a valid number for age.")
         st.stop()
 
-    # Collect other inputs
-    marital_status = st.selectbox("Marital Status", ["Single", "Married", "Widowed", "Cohabiting"])
-    has_disability = st.selectbox("Has Disability", ["Yes", "No"])
-    out_of_school = st.selectbox("Out of School", ["Yes", "No"])
-    ever_had_sex = st.selectbox("Ever Had Sex", ["Yes", "No"])
-    is_head = st.selectbox("Is Head", ["Yes", "No"])
-    undergone_gbv_last_12mnths = st.selectbox("Undergone GBV Last 12 Months", ["Yes", "No"])
-    sexual_partners_last_12mnths = st.selectbox("Sexual Partners Last 12 Months", ["Yes", "No"])
-    received_gifts_for_sex = st.selectbox("Received Gifts for Sex", ["Yes", "No"])
-    ever_had_sti = st.selectbox("Ever Had STI", ["Yes", "No"])
-    no_condom_use = st.selectbox("No Condom Use", ["Yes", "No"])
-    is_orphan = st.selectbox("Is Orphan", ["Yes", "No"])
-    has_child = st.selectbox("Has Child", ["Yes", "No"])
-    used_drugs_last_12mnths = st.selectbox("Used Drugs Last 12 Months", ["Yes", "No"])
+    # Collect other inputs with no pre-loaded options
+    marital_status = st.selectbox("Marital Status", ["Select an option", "Single", "Married", "Widowed", "Cohabiting"])
+    if marital_status == "Select an option":
+        st.error("Please select a marital status.")
+        st.stop()
+
+    has_disability = st.selectbox("Do you have any form of disability?", ["Select an option", "Yes", "No"])
+    if has_disability == "Select an option":
+        st.error("Please select an option for disability status.")
+        st.stop()
+
+    out_of_school = st.selectbox("Out of School", ["Select an option", "Yes", "No"])
+    if out_of_school == "Select an option":
+        st.error("Please select an option for out of school status.")
+        st.stop()
+
+    ever_had_sex = st.selectbox("Ever Had Sex", ["Select an option", "Yes", "No"])
+    if ever_had_sex == "Select an option":
+        st.error("Please select an option for sexual activity status.")
+        st.stop()
+
+    is_head = st.selectbox("Is the head of the household or in a child headed household", ["Select an option", "Yes", "No"])
+    if is_head == "Select an option":
+        st.error("Please select an option for household head status.")
+        st.stop()
+
+    undergone_gbv_last_12mnths = st.selectbox("Undergoing violence or has undergone violence in the last 12 Months? (Physical, Emotional, Sexual, Social economic Violence)", ["Select an option", "Yes", "No"])
+    if undergone_gbv_last_12mnths == "Select an option":
+        st.error("Please select an option for violence status.")
+        st.stop()
+
+    sexual_partners_last_12mnths = st.selectbox("Has had more than one sexual partner in the last 12 months?", ["Select an option", "Yes", "No"])
+    if sexual_partners_last_12mnths == "Select an option":
+        st.error("Please select an option for sexual partners.")
+        st.stop()
+
+    received_gifts_for_sex = st.selectbox("Has ever received money gifts or favors in exchange for sex?", ["Select an option", "Yes", "No"])
+    if received_gifts_for_sex == "Select an option":
+        st.error("Please select an option for receiving gifts for sex.")
+        st.stop()
+
+    ever_had_sti = st.selectbox("Have been diagnosed or treated for STI?", ["Select an option", "Yes", "No"])
+    if ever_had_sti == "Select an option":
+        st.error("Please select an option for STI history.")
+        st.stop()
+
+    no_condom_use = st.selectbox("No or irregular condom use with a non-marital /non-cohabiting partner?", ["Select an option", "Yes", "No"])
+    if no_condom_use == "Select an option":
+        st.error("Please select an option for condom use.")
+        st.stop()
+
+    is_orphan = st.selectbox("Is an orphan (partial or total)", ["Select an option", "Yes", "No"])
+    if is_orphan == "Select an option":
+        st.error("Please select an option for orphan status.")
+        st.stop()
+
+    has_child = st.selectbox("Has a child of her own/is pregnant/has been pregnant?", ["Select an option", "Yes", "No"])
+    if has_child == "Select an option":
+        st.error("Please select an option for child/pregnancy status.")
+        st.stop()
+
+    used_drugs_last_12mnths = st.selectbox("Has used alcohol/drugs or abused or struggled with addiction in the last 12 months?", ["Select an option", "Yes", "No"])
+    if used_drugs_last_12mnths == "Select an option":
+        st.error("Please select an option for drug/alcohol use.")
+        st.stop()
 
     # Make prediction when button is clicked
     if st.button("Check Eligibility"):
@@ -110,7 +161,6 @@ def main():
         else:
             st.write('AGYW is Eligible for Enrollment')
         
-       
 # Run the app
 if __name__ == "__main__":
     main()
