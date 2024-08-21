@@ -59,7 +59,7 @@ def main():
     st.title("Eligibility for Enrollment Prediction")
 
     # Age input
-    age_at_screening = st.text_input("AGYW Age at Screening")
+    age_at_screening = st.text_input("Enter AGYW Age at Screening")
 
     # Validate age input
     try:
